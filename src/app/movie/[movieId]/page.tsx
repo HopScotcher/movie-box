@@ -9,6 +9,11 @@ type moviePageprop = {
   movie: object;
 };
 
+type GenreProp = {
+  id: string;
+  name: string;
+};
+
 const getMovie = async (movieId: string) => {
   const res = axios.get(
     `https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.NEXT_PUBLIC_MOVIES_API_KEY}`
@@ -60,7 +65,7 @@ export default async function DetailPage({ params }: any) {
               >
                 <div className="mb-2">
                   Genres:
-                  {movie.genres.map((genre: object) => (
+                  {movie.genres.map((genre: GenreProp) => (
                     <span className="text-slate-600 pl-2" key={genre.id}>
                       {genre?.name}
                     </span>

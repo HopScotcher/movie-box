@@ -15,7 +15,7 @@ import Image from "next/image";
 import { StarIcon, StarOffIcon } from "lucide-react";
 
 type MovieCardProps = {
-  movie: Movie;
+  movieProp: Movie;
 };
 
 type Movie = {
@@ -27,19 +27,19 @@ type Movie = {
   vote_count: string;
 };
 
-export default function MovieCard({ movie }: MovieCardProps) {
+export default function MovieCard({ movieProp }: MovieCardProps) {
   //   const router = useRouter();
   const handleClick = () => {
-    // router.push("/src/app/movie/page.tsx");
+    // router.push("/src/app/movieProp/page.tsx");
   };
 
   return (
-    <Link href={`/movie/${movie.id}`}>
+    <Link href={`/movie/${movieProp.id}`}>
       <Card className="" onClick={handleClick}>
         <CardContent>
           <Image
             src={`https://image.tmdb.org/t/p/original/${
-              movie.poster_path || movie.backdrop_path
+              movieProp.poster_path || movieProp.backdrop_path
             }`}
             width={300}
             height={300}
@@ -47,15 +47,15 @@ export default function MovieCard({ movie }: MovieCardProps) {
             priority={true}
             className="sm:rounded-t-lg group-hover:opacity-80 transition-opacity duration-200"
           />
-          <h2 className="font-semibold">{movie.title}</h2>
+          <h2 className="font-semibold">{movieProp.title}</h2>
         </CardContent>
         <CardFooter className="flex flex-row justify-between">
           <span className="text-slate-600 flex flex-row">
             <StarIcon className="h-5" />
-            {truncate(movie.vote_average)}
+            {truncate(movieProp.vote_average)}
           </span>
           <span className="text-slate-500">
-            {formatNumberWithCommas(Number(movie.vote_count))} votes
+            {formatNumberWithCommas(Number(movieProp.vote_count))} votes
           </span>
         </CardFooter>
       </Card>

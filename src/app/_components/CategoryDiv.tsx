@@ -4,17 +4,17 @@ import truncateValue from "@/lib/truncateValue";
 
 type CategoryDivProps = {
   categoryName: string;
-  movies: MovieProp;
+  movies: Movie[];
 };
 
-type MovieProp ={
-  id: string,
-  title: string,
-  backdrop_path: string,
-  poster_path: string,
-  vote_average: string
-
-}
+type Movie = {
+  id: string;
+  title: string;
+  backdrop_path: string;
+  poster_path: string;
+  vote_average: string;
+  vote_count: string;
+};
 
 export default function CategoryDiv({
   categoryName,
@@ -26,13 +26,7 @@ export default function CategoryDiv({
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 ">
         {movies.map((movie) => (
-          <MovieCard
-            key={movie.id}
-            title={movie.title}
-            image={movie.backdrop_path || movie.poster_path}
-            rating={truncateValue(movie.vote_average)}
-            movie={movie}
-          />
+          <MovieCard movieProp={movie} key={movie.id} />
         ))}
       </div>
     </div>

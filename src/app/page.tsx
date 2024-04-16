@@ -15,7 +15,7 @@ export default function Home() {
   const fetchMovies = async () => {
     try {
       const res = await axios.get(
-        `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.apiKey}&language=en-US&page=1`
+        `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.NEXT_PUBLIC_MOVIES_API_KEY}&language=en-US&page=1`
 
         // { next: { revalidate: 10000 } }
       );

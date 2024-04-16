@@ -11,7 +11,7 @@ type moviePageprop = {
 
 const getMovie = async (movieId: string) => {
   const res = axios.get(
-    `https://api.themoviedb.org/3/movie/${movieId}?api_key=4ad232a54b8f84c2be9c42a1105edd38`
+    `https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.NEXT_PUBLIC_MOVIES_API_KEY}`
   );
   return res;
 };

@@ -44,6 +44,7 @@ export default function MovieCard({ movie }: MovieCardProps) {
             width={300}
             height={300}
             alt="movie poster"
+            priority={true}
             className="sm:rounded-t-lg group-hover:opacity-80 transition-opacity duration-200"
           />
           <h2 className="font-semibold">{movie.title}</h2>

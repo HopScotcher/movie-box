@@ -11,7 +11,7 @@ export default function Page() {
   const fetchMovies = async () => {
     try {
       const res = await axios.get(
-        `https://api.themoviedb.org/3/movie/top_rated?api_key=${`4ad232a54b8f84c2be9c42a1105edd38`}&language=en-US&page=1`
+        `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.NEXT_PUBLIC_MOVIES_API_KEY}&language=en-US&page=1`
 
         // { next: { revalidate: 10000 } }
       );

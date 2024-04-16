@@ -61,7 +61,9 @@ export default async function DetailPage({ params }: any) {
                 <div className="mb-2">
                   Genres:
                   {movie.genres.map((genre: object) => (
-                    <span className="text-slate-600 pl-2">{genre?.name}</span>
+                    <span className="text-slate-600 pl-2" key={genre.id}>
+                      {genre?.name}
+                    </span>
                   ))}
                 </div>
                 {movie.overview}

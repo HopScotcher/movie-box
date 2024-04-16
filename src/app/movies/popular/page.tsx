@@ -1,12 +1,11 @@
-'use client'
-
+"use client";
 
 import React from "react";
 import CategoryDiv from "@/app/_components/CategoryDiv";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function page() {
+export default function Page() {
   const [movies, setMovies] = useState();
 
   const fetchMovies = async () => {
